@@ -1,114 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>SquarePrism</title>
-  <meta name="author" content="squareprism.com">
-
-  
-  <meta name="description" content="I worked on an idea for discovery of books a couple of years ago. The idea was simple - make a catalog of your paper books
-online and tag your &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><![CDATA[Category: Articles | SquarePrism]]></title>
+  <link href="http://squareprism.github.io/blog/categories/articles/atom.xml" rel="self"/>
+  <link href="http://squareprism.github.io/"/>
+  <updated>2014-10-08T17:40:29+05:30</updated>
+  <id>http://squareprism.github.io/</id>
+  <author>
+    <name><![CDATA[squareprism.com]]></name>
+    <email><![CDATA[support@squareprism.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-  <link rel="canonical" href="http://squareprism.github.io">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="SquarePrism" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
-<script type="text/javascript">var switchTo5x=true;</script>
-<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
-<script type="text/javascript">stLight.options({publisher: "ur-c3075a80-e1-d57c-8f9a-a240a9aae407", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-52511039-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
-</head>
-
-<body   >
-  <div>
-  <div style="padding-left: 20px;background-color: #ffffff;"><a href="/">
-      <img src="/images/SquarePrismLogo.png" alt="">
-  </a>
-  </div>
-  
-
-
-</div>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<ul class="main-navigation">
-  <li><a href="/">Home</a></li>
-  <li><a href="/blog/archives">Timeline</a></li>
-  <li><a href="/about/">About</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/09/30/Open-Source-Book-Discovery-App/">Open Source Book Discovery App - LocalReads</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-30T00:00:00+05:30" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I worked on an idea for discovery of books a couple of years ago. The idea was simple - make a catalog of your paper books
+  <entry>
+    <title type="html"><![CDATA[Open Source Book Discovery App - LocalReads]]></title>
+    <link href="http://squareprism.github.io/blog/2014/09/30/Open-Source-Book-Discovery-App/"/>
+    <updated>2014-09-30T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/09/30/Open-Source-Book-Discovery-App</id>
+    <content type="html"><![CDATA[<p>I worked on an idea for discovery of books a couple of years ago. The idea was simple - make a catalog of your paper books
 online and tag your location to it. Friends and neighbours would then be able to search for a book using the service and
 discover books in your shelf. The service would allow making requests for books and manage subsequent interactions between
 users. I tried developing this concept in residential communities, colleges and online book groups but did not get significant
@@ -147,42 +57,15 @@ as the normal spring security based authentication relies on sessions to be main
 implemented using <a href="http://grails.org/plugin/spring-websocket">Spring Websockets</a>. Reach out if you are looking for help in these areas.</p>
 
 <p>All of the code is distributed under the Creative Commons License 4.0.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/08/05/Why-Develop-T-Shaped-Resources/">Why Develop T-Shaped Resources for Agile Development</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-08-05T00:00:00+05:30" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>I first came across the concept of the T-shaped resource in Donald G Reinersten&rsquo;s <a href="http://www.leanproductflow.com/">book</a>
+  <entry>
+    <title type="html"><![CDATA[Why Develop T-Shaped Resources for Agile Development]]></title>
+    <link href="http://squareprism.github.io/blog/2014/08/05/Why-Develop-T-Shaped-Resources/"/>
+    <updated>2014-08-05T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/08/05/Why-Develop-T-Shaped-Resources</id>
+    <content type="html"><![CDATA[<p>I first came across the concept of the T-shaped resource in Donald G Reinersten&rsquo;s <a href="http://www.leanproductflow.com/">book</a>
 on Lean Product Development. It is discussed as a principle under the section on applying WIP constraints. The discussions
 revolve around 3 types of individuals with different types of capabilities - experts, generalists and t-shaped resources. The significance
 of this concept struck me later when I started digging into the principles of software <a href="http://kanbanblog.com/explained/">Kanban</a></p>
@@ -213,42 +96,15 @@ process steps in a flow. An example would be an expert tester, who can also move
 faces a capacity bottleneck and cannot move a work item forward, this naturally frees up capacity of testers since there are less
 items in their backlog due to upstream WIP constraints. This frees up a T-shaped test resource to easily shift focus to development to clear up
 work items blocked due to lower capacity. As added benefits, such movements also result in improved communication and variety of work.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/07/30/AngularJS-is-not-just-MVC/">AngularJS Is Not Just an MVC Framework</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-07-30T00:00:00+05:30" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Which Javascript MVC framework should I use? AngularJS or KnockoutJS or Ember or &hellip;? This is a very common question that gets asked by
+  <entry>
+    <title type="html"><![CDATA[AngularJS Is Not Just an MVC Framework]]></title>
+    <link href="http://squareprism.github.io/blog/2014/07/30/AngularJS-is-not-just-MVC/"/>
+    <updated>2014-07-30T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/07/30/AngularJS-is-not-just-MVC</id>
+    <content type="html"><![CDATA[<p>Which Javascript MVC framework should I use? AngularJS or KnockoutJS or Ember or &hellip;? This is a very common question that gets asked by
 javascript developers who want to start using MVC in their applications. Most of the answers to such queries
 usually conclude with &lsquo;it depends&rsquo; on what you need. But there is a bigger problem, one with the question
 itself because Angular (and other frameworks like Ember, Backbone) are not just MVC. They are a lot more.</p>
@@ -290,42 +146,15 @@ that fit the bill and Angular may not be the recommended option. But if you have
 requires better organization, testability, extensibility, dependency management, and separation of concerns in the form
 of MVC, then a framework such a Angular is the best bet. Above all in Angular as these larger concerns are part of
 the framework construct, as our code base grows to large sizes, it allows us maintain our sanity !!</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/07/22/Web-Security-with-Grails/">Securing Web Applications With Grails</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-07-22T00:00:00+05:30" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>As web applications become more complex by the day, security becomes an important aspect to consider during development.
+  <entry>
+    <title type="html"><![CDATA[Securing Web Applications With Grails]]></title>
+    <link href="http://squareprism.github.io/blog/2014/07/22/Web-Security-with-Grails/"/>
+    <updated>2014-07-22T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/07/22/Web-Security-with-Grails</id>
+    <content type="html"><![CDATA[<p>As web applications become more complex by the day, security becomes an important aspect to consider during development.
 One way to address the variety of security loopholes in the system is to follow a check-list based approach. Look at the
 top 10 vulnerabilities web apps face today and address each one of these individually. OWASP (The Open Web Application
 Security Project) provides a list of <strong>top 10 security flaws that web applications face <a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">here</a></strong>.
@@ -396,42 +225,15 @@ details of encrypting data, and there’s even a Grails plugin for it: the <a hr
 advantage of by attackers by taking advantage of some XSS exploit. One way to deal with this
 is to use server side redirects which cannot be exploited. Another way to address this specific to
 grails is to use the &lsquo;flash&rsquo; scope.</p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2014/07/01/Which-Database/">Which Database?</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-07-01T00:00:00+05:30" pubdate data-updated="true"></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>We have come a long way from the days where database development meant designing relational models  for a database like Oracle or
+  <entry>
+    <title type="html"><![CDATA[Which Database?]]></title>
+    <link href="http://squareprism.github.io/blog/2014/07/01/Which-Database/"/>
+    <updated>2014-07-01T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/07/01/Which-Database</id>
+    <content type="html"><![CDATA[<p>We have come a long way from the days where database development meant designing relational models  for a database like Oracle or
 SQL Server. The last few years have seen a proliferation of databases that are meant to perform very specific tasks.Application
 server middle-ware have also become more flexible and now support multiple data sources instead of having to use just a single DB.</p>
 
@@ -449,130 +251,7 @@ two. If one of these parameters are important for an architecture, it may be per
 before making a choice.</p>
 
 <p>Want to know more? Check out <a href="http://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921/ref=sr_1_1?ie=UTF8&amp;qid=1404529485&amp;sr=8-1&amp;keywords=seven+databases+in+seven+weeks" title="Seven Databases in Seven Weeks">Seven Databases in Seven Weeks</a></p>
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/posts/2">&larr; Older</a>
-    
-    <a style="padding-left: 50px;" href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2014/09/30/Open-Source-Book-Discovery-App/">Open Source Book Discovery App - LocalReads</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/08/05/Why-Develop-T-Shaped-Resources/">Why Develop T-Shaped Resources for Agile Development</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/30/AngularJS-is-not-just-MVC/">AngularJS Is Not Just an MVC Framework</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/22/Web-Security-with-Grails/">Securing Web Applications With Grails</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2014/07/01/Which-Database/">Which Database?</a>
-      </li>
-    
-  </ul>
-</section>
-<section>
-  <h1>Recent Tweets</h1>
-  <a class="twitter-timeline" href="https://twitter.com/SquarePrism" data-widget-id="484559403496910849">Tweets by @SquarePrism</a>
-   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-
-</section>
-<section>
-    <h1>Share This Site</h1>
-    <span class='st_facebook_large' displayText='Facebook'></span>
-    <span class='st_twitter_large' displayText='Tweet'></span>
-    <span class='st_linkedin_large' displayText='LinkedIn'></span>
-    <span class='st_email_large' displayText='Email'></span>
-</section>
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - squareprism.com
-</p>
-
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'squareprism';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id; js.async = true;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>

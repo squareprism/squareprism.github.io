@@ -1,16 +1,576 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[SquarePrism]]></title>
   <link href="http://squareprism.github.io/atom.xml" rel="self"/>
   <link href="http://squareprism.github.io/"/>
-  <updated>2014-10-08T17:25:43+05:30</updated>
+  <updated>2014-10-08T17:40:29+05:30</updated>
   <id>http://squareprism.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
-    
+    <name><![CDATA[squareprism.com]]></name>
+    <email><![CDATA[support@squareprism.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Open Source Book Discovery App - LocalReads]]></title>
+    <link href="http://squareprism.github.io/blog/2014/09/30/Open-Source-Book-Discovery-App/"/>
+    <updated>2014-09-30T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/09/30/Open-Source-Book-Discovery-App</id>
+    <content type="html"><![CDATA[<p>I worked on an idea for discovery of books a couple of years ago. The idea was simple - make a catalog of your paper books
+online and tag your location to it. Friends and neighbours would then be able to search for a book using the service and
+discover books in your shelf. The service would allow making requests for books and manage subsequent interactions between
+users. I tried developing this concept in residential communities, colleges and online book groups but did not get significant
+traction to pursue it as a serious business.</p>
+
+<p>In the couple of years that followed there were many others who approached or discussed the same idea online and otherwise.
+I discouraged some of the folks explaining my experiences with traction. I am sure many more would want to try it out. But
+the fact that there are many people with the same idea points to a possible passionate market however small it maybe. Most of
+the code I had developed was lying idle and I thought it would help folks trying to build this concept from scratch if I
+open sourced the codebase.</p>
+
+<p>In the last few weeks I refactored the old code and built out a <a href="https://play.google.com/store/apps/details?id=com.squareprism.localreads.ver1">mobile app</a> with the same backend, but used newer technologies
+to build better capabilities and with less code. I have published the app for free on Android platform. You can check it out
+at <a href="https://play.google.com/store/apps/details?id=com.squareprism.localreads.ver1">here</a>. The code is open source and published in github.</p>
+
+<p><img src="http://squareprism.github.io/images/localreads-android-page.png" alt="localreads" /></p>
+
+<p>The android app is developed using the <a href="http://www.ionicframework.com">Ionic-Angular framework</a> that lets you build hybrid
+(html + native) apps. The backend service is implemented as a set of REST apis using <a href="http://www.grails.org">Grails</a> with
+a MongoDB database. You can check out the code on github at the following locations.</p>
+
+<ul>
+<li>LocalReads Mobile App Codebase - <a href="https://github.com/sathishc/localreads">https://github.com/sathishc/localreads</a></li>
+<li>LocalReads backend service - <a href="https://github.com/sathishc/localreads-service">https://github.com/sathishc/localreads-service</a></li>
+</ul>
+
+
+<p>See instructions for building the codebase in the corresponding github repositories. The front end code uses Protractor/Jasmine for
+End-to-End testing and Karma/Jasmine for unit tests. The backend uses Spock framework for testing the apis.</p>
+
+<p>The code base will help developers trying to build similar capabilities for other apps - location
+based full-text search, real-time messaging, restful and stateless service, hybrid mobile app using cordova, etc</p>
+
+<p>To build a full stateless restful service in grails I have used the <a href="https://github.com/alvarosanchez/grails-spring-security-rest">Spring Security Rest plugin</a>
+as the normal spring security based authentication relies on sessions to be maintained. Real-time messaging is
+implemented using <a href="http://grails.org/plugin/spring-websocket">Spring Websockets</a>. Reach out if you are looking for help in these areas.</p>
+
+<p>All of the code is distributed under the Creative Commons License 4.0.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why Develop T-Shaped Resources for Agile Development]]></title>
+    <link href="http://squareprism.github.io/blog/2014/08/05/Why-Develop-T-Shaped-Resources/"/>
+    <updated>2014-08-05T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/08/05/Why-Develop-T-Shaped-Resources</id>
+    <content type="html"><![CDATA[<p>I first came across the concept of the T-shaped resource in Donald G Reinersten&rsquo;s <a href="http://www.leanproductflow.com/">book</a>
+on Lean Product Development. It is discussed as a principle under the section on applying WIP constraints. The discussions
+revolve around 3 types of individuals with different types of capabilities - experts, generalists and t-shaped resources. The significance
+of this concept struck me later when I started digging into the principles of software <a href="http://kanbanblog.com/explained/">Kanban</a></p>
+
+<p>The core principle of software Kanban stresses on <strong>one-piece-flow</strong>. Unlike techniques like scrum, there is
+no sprint planning that is required to prioritize the user stories for the next sprint, instead the next set of
+high-priority stories are always available in a short-listed version of the product backlog. Development team *pulls&#8221; the
+next story and starts working on them as soon as there is free capacity (i.e. as long as WIP constraints are met). The difference
+from other agile development processes is that when a block is experienced the entire flow is stopped to clear the blockage. This
+is where the concept of different types of resources or profiles come into play. The process of addressing a block is explained in
+the following diagrams that I have borrowed from the <a href="http://www.crisp.se/henrik.kniberg/Kanban-vs-Scrum.pdf">Kanban_and_Scrum</a> InfoQ book</p>
+
+<p><img src="http://squareprism.github.io/images/Scrum_vs_Kanban1.png" alt="Kanban 1" /></p>
+
+<p><img src="http://squareprism.github.io/images/Scrum_vs_Kanban2.png" alt="Kanban 2" /></p>
+
+<p><img src="http://squareprism.github.io/images/Scrum_vs_Kanban3.png" alt="Kanban 3" /></p>
+
+<p>All the three types of profiles (I prefer &lsquo;profiles&rsquo; to &lsquo;resources&rsquo;, it sounds more human) can be used to clear blockages in a
+work queue. <strong>Experts</strong> have tremendous solving power to clear up technical bottlenecks. So deploying experts in each step can help
+clear up blocks. But it is difficult to achieve significant depth of expertise and such profiles are scarce. <strong>Generalists</strong> are
+profiles that can be deployed in any of the steps in a queue. They can be used to clear minor blocks that occur due to resource
+unavailability but again finding resources with knowledge of many steps of the process is again difficult.</p>
+
+<p><strong>T-shaped resources</strong> provide an alternative to the constraints faced in developing and deploying experts and generalists. The idea
+behind a T-shaped profile is an individual who has sufficient depth in a particular area but can also seamlessly shift to adjacent
+process steps in a flow. An example would be an expert tester, who can also move easily to development and deployment. When development
+faces a capacity bottleneck and cannot move a work item forward, this naturally frees up capacity of testers since there are less
+items in their backlog due to upstream WIP constraints. This frees up a T-shaped test resource to easily shift focus to development to clear up
+work items blocked due to lower capacity. As added benefits, such movements also result in improved communication and variety of work.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[AngularJS Is Not Just an MVC Framework]]></title>
+    <link href="http://squareprism.github.io/blog/2014/07/30/AngularJS-is-not-just-MVC/"/>
+    <updated>2014-07-30T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/07/30/AngularJS-is-not-just-MVC</id>
+    <content type="html"><![CDATA[<p>Which Javascript MVC framework should I use? AngularJS or KnockoutJS or Ember or &hellip;? This is a very common question that gets asked by
+javascript developers who want to start using MVC in their applications. Most of the answers to such queries
+usually conclude with &lsquo;it depends&rsquo; on what you need. But there is a bigger problem, one with the question
+itself because Angular (and other frameworks like Ember, Backbone) are not just MVC. They are a lot more.</p>
+
+<p>MVC has been a proven way to address the &lsquo;separation of concerns&rsquo; problem in user interfaces since developers
+started using Smalltalk and the pattern got documented in literature on Design and Architecture patterns. As
+Javascript development passed the threshold of simple to complex web-apps, MVC found its way into Javascript
+in the form  of multiple frameworks. But separation of concerns in the view-model layer is just one of the
+problems of Javascript. Unlike other server side languages like Java or C++ that support language level constructs
+for organization and dependency management (packages, modules), lifecycle management, extensibility (inheritance and
+decoration), and testability via dependency injection, Javascript stays clear of these capabilities. So,
+for someone that wants to develop a complex app, these factors become as equally important as the separation of
+concerns problem.</p>
+
+<p><strong>Organization, Dependency and Lifecycle Management</strong>
+Angular provides the concept of organizing code using a Module.One can think of a module as a container for the
+different parts of your app – controllers, services, filters, directives, etc. Modules  specify how an
+application should be bootstrapped. It has a declarative process easy to understand and promotes reuse.To manage
+the responsibility of dependency creation, each Angular application has an injector. The injector is a service locator
+that is responsible for construction and lookup of dependencies.</p>
+
+<p><strong>Separation of Concerns</strong>
+At the core of Angular are constructs for implementing Template based views, Controllers and data Models. The
+framework uses the concept of &lsquo;scope&rsquo; per controller bound to an HTML element in DOM, and takes care of two-way data
+binding between the UI and the &lsquo;scope&rsquo;. Developer handle changes to scope within controllers and update their models
+appropriately.</p>
+
+<p><strong>Extensibility</strong>
+There are several ways to extend angular and use its features to do work for you. One option is to use specialized
+objects called <em>directives</em> that help build web components. Another option is to implement *providers&#8221;. Custom directives
+are a powerful feature of Angular and eases code reuse.</p>
+
+<p><strong>Testability</strong>
+Angular provides <em>Protractor</em>, an end to end test runner which simulates user interactions that will help one verify
+the health of Angular applications. Protractor along with &lsquo;DI&rsquo; based testable code enhances the quality of apps</p>
+
+<p>If all you need is just a simple app implementing MVC (read TodoMVC) that needs to be fast there are many frameworks
+that fit the bill and Angular may not be the recommended option. But if you have a large and complex codebase that
+requires better organization, testability, extensibility, dependency management, and separation of concerns in the form
+of MVC, then a framework such a Angular is the best bet. Above all in Angular as these larger concerns are part of
+the framework construct, as our code base grows to large sizes, it allows us maintain our sanity !!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Securing Web Applications With Grails]]></title>
+    <link href="http://squareprism.github.io/blog/2014/07/22/Web-Security-with-Grails/"/>
+    <updated>2014-07-22T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/07/22/Web-Security-with-Grails</id>
+    <content type="html"><![CDATA[<p>As web applications become more complex by the day, security becomes an important aspect to consider during development.
+One way to address the variety of security loopholes in the system is to follow a check-list based approach. Look at the
+top 10 vulnerabilities web apps face today and address each one of these individually. OWASP (The Open Web Application
+Security Project) provides a list of <strong>top 10 security flaws that web applications face <a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">here</a></strong>.
+Addressing these flaws will help applications reduce a significant percentage of attacks. The list of attacks and the facilities Grails provide to
+counter these flaws is discussed by Burt Beckwith in his book <a href="http://www.amazon.com/gp/product/1449323936/ref=s9_psimh_gw_p14_d0_i1?pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=center-2&amp;pf_rd_r=0V1S7N5XDS49SC24MCXB&amp;pf_rd_t=101&amp;pf_rd_p=1688200342&amp;pf_rd_i=507846">Programming Grails</a>
+A summary of the discussion is provided below.</p>
+
+<p><strong>Injection (SQL / Javascript) :</strong>  where a text input field is used to enter code (SQL or Javascript) that can compromise the application.
+  Grails is mostly immune to this because most of ths queries are converted to Hibernate criteria queries (which uses PreparedStatement with parameter
+  holders, and this escapes any injected code). In case you use HQL, care should be taken to avoid injection. Another possible injection vulnerability is if you use
+  groovy command execution in the backend. So one needs to take care of escaping these scenarios.</p>
+
+<p><strong>Broken Auth / Sessions :</strong> where incorrect implementation of authentication and session management is taken advantage to compromise passwords, keys, or session tokens
+  The simple solution to this is to use a library that implements authentication and session management. Grails uses the Spring-Security library and
+  provides a plugin to integrate it easily into your web application. Just make sure the following parameters are set correctly
+    - grails.views.enable.jsessionid = false
+    - grails.plugins.springsecurity.useSessionFixationPrevention = true
+    - make sure to use encodeURL instead of encodeRedirectURL if you are creating redirect URLs</p>
+
+<p><strong>XSS (Cross site scripting) :</strong> where untrusted data (using injection) is sent to browser (javascript code executed in place of data)
+Setting
+    grails.views.default.codec = &ldquo;html&rdquo;
+allows automatic escaping of input data. But this is not fool-proof. Also make sure you don&rsquo;t use the following Groovy server pages technique for writing to
+output which directly writes to output stream.
+    &lt;%=person.name%></p>
+
+<p><strong>Insecure Direct object references :</strong> where urls point to internal objects and changing a url with a different parameter could provide access to unauthorized data.
+In Grails this can be avoided by using Spring security authentication - get the appropriate user id in the server and use that to retrieve further
+references instead of having them in the client. Another option would be to use ACLs, but this is more cumbersome</p>
+
+<p><strong>Mis-configured security :</strong> such as not using correct algorithms, not enabling SSL, etc. Grails does not have any explicit way to automate away misconfiguration</p>
+
+<p><strong>Failure to restrict URL access :</strong> The Spring Security plugin offers three approaches to guarding URLs: annotations,
+database “requestmaps,” and a simple mapping of URLs and their required roles. In addition, there is a “strict” mode
+option where URLs that do not have explicit access rules defined are blocked. Enabling this is simple, just a single line
+in Config.groovy:
+    grails.plugins.springsecurity.rejectIfNoRule = true</p>
+
+<p><strong>Insufficient Transport Layer Protection :</strong> One of the easiest ways to do this is to use SSL for your web traffic.
+Although there is a small cost to using SSL due to the processing work encrypting the
+pages, you should consider using SSL for the entire site. Then, everything is transmitted
+securely and the data is significantly less likely to be accessed by attackers.
+The certificate should use strong encryption, with a key size of at least 128 bits.</p>
+
+<p><strong>CSRF :</strong> A cross-site request forgery (CSRF) attack is similar to an XSS attack. An attacker will
+often use XSS vulnerabilities to create pages that make requests on the behalf of other
+users and send personal information, cookies, or session IDs to the attacker’s server, or
+perform some action on behalf of the user. The first line of defense against CSRF attacks is to ensure that XSS attacks
+are not possible.</p>
+
+<p>The best way to defeat CSRF attacks is to generate a token for each clickable URL (appended
+to the href) and form (using an <input type='hidden'> tag), and verify the token at the server. If a request is made
+(either a GET or a POST), and there is no token or it’s not valid, the action is blocked. As long as the value is unique
+and generated for each request, even if an attacker accesses someone else’s valid token, it won’t be usable,
+because it is only valid for that user. The easiest way to implement this is to use grails HDIV plugin</p>
+
+<p><strong>Using insecure cryptographic storage :</strong> Storing data requires good libraries for Hashing and Encryption.
+Passwords are typically hashed. There is rarely a need to decrypt a password stored in a database, because during
+authentication, you merely need to hash the user’s supplied password and compare it with the previously hashed value.
+MD5, and SHA-1 are popular algorithms but recent advances in computing have made it easy to break these.
+One should prefer SHA-256 or SHA-512 for hashing. The best choice is Bcrypt where you can specify number of hash iterations.
+Adding a &ldquo;salt&rdquo; to hashing makes it more robust.</p>
+
+<p>The Jasypt library is an excellent tool to avoid having to deal with the implementation
+details of encrypting data, and there’s even a Grails plugin for it: the <a href="http://grails.org/plugin/jasypt-encryption">jasyptencryption plugin</a>.</p>
+
+<p><strong>Unvalidated redirects :</strong> Redirecting or forwarding users to other URLs exposes them to being taken
+advantage of by attackers by taking advantage of some XSS exploit. One way to deal with this
+is to use server side redirects which cannot be exploited. Another way to address this specific to
+grails is to use the &lsquo;flash&rsquo; scope.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Which Database?]]></title>
+    <link href="http://squareprism.github.io/blog/2014/07/01/Which-Database/"/>
+    <updated>2014-07-01T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/07/01/Which-Database</id>
+    <content type="html"><![CDATA[<p>We have come a long way from the days where database development meant designing relational models  for a database like Oracle or
+SQL Server. The last few years have seen a proliferation of databases that are meant to perform very specific tasks.Application
+server middle-ware have also become more flexible and now support multiple data sources instead of having to use just a single DB.</p>
+
+<p>Since there are so many options out there it is important to understand the strength and weakness of each and use databases
+appropriately, based on functional or non-functional requirements. Here&rsquo;s a handy map of some of the most popular databases and
+where they would fit into your application architecture.</p>
+
+<p><img src="http://squareprism.github.io/images/Which_Database.png" title="Which Database" alt="Which database?" /></p>
+
+<p>In addition to picking a database based on functional requirements, one may require to access them based on the compromises
+each one makes in terms of supporting <em>consistency</em>, <em>availability</em> and <em>partitioning tolerance</em>. A popular thumb-rule for such
+an assessment is known as the <strong>CAP Theorem</strong>. CAP theorem states that most databases would be able to satisfy two of the
+three conditions above, but not all - so every database makes a compromise in one of these parameters to satisfy the other
+two. If one of these parameters are important for an architecture, it may be pertinent to know if a database is making a compromise
+before making a choice.</p>
+
+<p>Want to know more? Check out <a href="http://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921/ref=sr_1_1?ie=UTF8&amp;qid=1404529485&amp;sr=8-1&amp;keywords=seven+databases+in+seven+weeks" title="Seven Databases in Seven Weeks">Seven Databases in Seven Weeks</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lean and Agile Development, the Big Picture]]></title>
+    <link href="http://squareprism.github.io/blog/2014/06/04/Lean-and-Agile-Development-The-Big-Picture/"/>
+    <updated>2014-06-04T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/06/04/Lean-and-Agile-Development-The-Big-Picture</id>
+    <content type="html"><![CDATA[<div style="text-align: justify;text-justify: inter-word;">
+
+<p>
+Lean and Agile Development has been around for many years now and numerous practices have evolved around various phases of software development. There has been a proliferation of consulting services around agile and lean. Fortunately or unfortunately, not many methodologies have evolved - apart from XP and Scrum.
+</p>
+<p>
+Most articles or books on Agile development start with a reference to the Agile Manifesto as a precursor to the practices followed.
+But to obtain a better understanding why agile practices are followed, we need to understand why individuals and interactions are valued over processes and tools, why working software is preferred over comprehensive documentation, why responding to change is more important than following a plan and why customer collaboration is considered paramount.
+</p>
+<p>
+It is common sense that businesses exist to maximize profit, but what is uncommon about some of the software methods of the past (Six Sigma, ISO 9000) is how following those would result in better business profitability. ISO and Six-Sigma touted that improving quality and reducing defects would result in better customer satisfaction and higher profit. But a defect-free product that arrived years late does not improve profit.
+</p>
+<p>
+Lean thinking and TPS is adopted to make sure products are delivered with reduced cycle times, but the base metrics are derived from the time-cost-quality triangle and optimizing one usually results in sub-par performance in another. To run an optimum business, we need a metric that follows the principle of optimal-substructure, that can be applied to all sub-components of the business and optimizing this metric in each area should help us optimize the metric for the whole business.
+</p>
+<p>
+It is a fundamental fact that <b>&#8216;asymmetric information&#8217;</b> leads to profitability. Insider trading in stocks, counting in card games, testing in drug research, A/B testing of web products, price comparison in online shopping, and many more such instances try to improve our ability to have better information and ultimately profit from it. Better information results in better decision making and higher profit. Information that is available to us much before it is available to the rest of the world can be considered asymmetric and enhances competitive advantage. In the software development process, the &#8216;product&#8217; or outcome of various activities is in fact information in various forms - requirement documents, design documents, code, test specifications, reports, and so on. In the context of a business unit developing software one can think of <b>better information delivered faster to the customer</b> as an optimal metric that can be used to measure each individual activity
+    We can call this metric <b style="background-color: #fafad2;">Information Rate</b>.
+</p>
+<p>
+When we think of the software development process as an entire system, the best form of information one can deliver to the customer is actual working software. During the process of developing working software (information), there may be opportunities to improve the quality of this information by continuously interacting (customer collaboration) with the customer. If the customer thinks there is better opportunity for generating better information by introducing new inputs, one must respond to changes. We can now understand how meaningless it would be to deliver information that is outdated (working software that requires change). Lastly delivering software requires a set of steps where information is handed over by individuals from one step to next. For each such step, the individuals from the previous step act as customers and hence to improve customer collaboration, one needs to improve on individuals and interactions.
+
+</p>
+<p>
+<div align="center">
+    <img src="http://squareprism.github.io/images/Lean-Development.png" alt="Lean Development">
+</div>
+    </p>
+<p>
+One can thus see how the principles of the agile manifesto directly lead to the generation of better, faster asymmetric information and has a direct impact on business profitability. This <b>informational view</b> of
+software is a paradigm shift in the way we approach software quality. It is no more necessary for working software in production to be perfect from day one, what is more
+important is for the software to be usable and functional, and most importantly to deliver the best information of how it needs to change to meet future requirements !!
+</p>
+</div>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Concurrent Testing in Grails With GPars and Spock]]></title>
+    <link href="http://squareprism.github.io/blog/2014/03/06/Concurrent-Testing-in-Grails-with-GPars/"/>
+    <updated>2014-03-06T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/03/06/Concurrent-Testing-in-Grails-with-GPars</id>
+    <content type="html"><![CDATA[<p>Last month I did a major backend refactoring of on of our applications and was feeling happy about how
+ much the code has been simplified and easier to understand. All was well until suddenly, we started getting strange
+errors in production. Our set of unit and integration tests had passed and I was quite confident that nothing
+had broken.</p>
+
+<p>With a few hours of debugging and head scratching, I nailed the problem down to some mutable variables that
+were being shared across multiple threads and sessions. In order to avoid initiating and creating multiple
+objects of a particular service, we had converted it to a Singleton, and the resulting change caused some
+variables ending up shared between multiple threads and break down the complete application. We did not have
+any unit or integration tests developed to test for concurrency and hence could not catch the issues earlier</p>
+
+<p>This experience led me to write test cases for concurrency and subsequent evaluation of technologies appropriate
+for developing concurrent applications. A few hours of reading opened my eyes to how much the world of
+ concurrent programming for the JVM had changed in the last few years. My experience is core java were from
+Java 2.0 years and with constructs like Thread, Runnable and Synchronized methods.</p>
+
+<p>Java 5.0 has apparently changed the space completely with introduction of the new util.concurrent package. Here
+are some of the things are now possible now when using the modern JDK</p>
+
+<pre><code>* Manage your own thread pool using Executor Services
+* Use the concept of callable to asynchronously call and receive responses from thread
+* Coordinate threads using Countdown latches (similar to Semaphores in C++)
+* Better data structures for data exchange between threads - BlockingQueue
+* Collection data structures - ConcurrentQueue, ConcurrentHashmap for better performance
+* Better granularity in synchronizing blocks of code (rather than using object level 'synchronized' methods) using Locks
+</code></pre>
+
+<p>Further exploring the topic I came across new libraries that were available to implement concurrency using
+implementation patterns like Memory Transactions and Actors. The prominent ones for the JVM were Akka and GPars.</p>
+
+<p>Akka is implemented in Scala and supports both of the patterns mentioned - it supports software transactional
+memory (STM) by using specialized transactional primitives that can be modified only within defined transactions.
+It also supports the concept of defining Actors - Objects that extended an Actor Object would always have their
+methods executed in separate threads. The Actor pattern of concurrency is also supported by the Groovy GPars
+library.</p>
+
+<p>Since Grails obviously played best with Groovy, and also since the implementation of concurrent did not involve
+ complex synchronizations, I chose to implement concurrent Spock tests using GPars. The combination of Spock&rsquo;s
+ highly expressive specification language and the clean design of GPars makes writing tests quite enjoyable.</p>
+
+<p>For example Spock allows Data Driven testing and allows you to wite tests like</p>
+
+<pre><code>class MathSpec extends Specification {
+    def "maximum of two numbers"() {
+        expect:
+        // exercise math method for a few different inputs
+        Math.max(1, 3) == 3
+        Math.max(7, 4) == 7
+        Math.max(0, 0) == 0
+    }
+}
+</code></pre>
+
+<p>GPars allows you to implement concurrent execution with a pool of threads and groovy collections like so:</p>
+
+<pre><code>withPool {
+    def selfPortraits = images
+        .findAllParallel{it.contains me}
+        .collectParallel {it.resize()}
+}
+</code></pre>
+
+<p>Combining these two results is extremely intuitive parallel test cases. I have included one of our example test
+cases below:</p>
+
+<pre><code>package com.squareprism.xyz
+
+import grails.test.mixin.TestMixin
+import grails.test.mixin.support.GrailsUnitTestMixin
+import spock.lang.Specification
+import static groovyx.gpars.GParsPool.*
+
+/**
+ * See the API for {@link grails.test.mixin.support.GrailsUnitTestMixin} for usage instructions
+ */
+@TestMixin(GrailsUnitTestMixin)
+class ParallelXYZGeneratorSpec extends Specification {
+
+    // data array for test data
+    def dataArray = [
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55]
+    ]
+    def results // collect results here
+
+    def setup() {
+    }
+
+    def cleanup() {
+    }
+
+    void "test Parallel XYZ Generation"() {
+        given:
+        withPool(8) { // use 8 parallel threads
+            results = dataArray.collectParallel{
+                return XYZGenerator.calculate(it[0], it[1], it[2], it[3], it[4], it[5], it[6])
+            }
+        }
+
+
+        expect:
+            results.size() == 8
+
+    }
+}
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[An Article From intercom.io - How to Educate and Persuade Your Customers]]></title>
+    <link href="http://squareprism.github.io/blog/2013/10/31/httpinsideintercom-iohow-to-educate-persuade-customers/"/>
+    <updated>2013-10-31T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2013/10/31/httpinsideintercom-iohow-to-educate-persuade-customers</id>
+    <content type="html"><![CDATA[<p><a href="http://insideintercom.io/how-to-educate-persuade-customers/" title="http://insideintercom.io/how-to-educate-persuade-customers/">
+    <img src="http://squareprism.github.io/images/HowCanIGetUsersTo-7401.png" alt="">
+</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Be Careful With That FAQ]]></title>
+    <link href="http://squareprism.github.io/blog/2013/08/22/Be-Careful-with-That-FAQ/"/>
+    <updated>2013-08-22T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2013/08/22/Be-Careful-with-That-FAQ</id>
+    <content type="html"><![CDATA[<p><strong>It could kill your SEO rankings</strong></p>
+
+<p>During the last few weeks we were experimenting with how we can improve our SEO rankings for <a href="https://www.jaatakam.com/">Jaatakam</a>.</p>
+
+<p>We had some pretty basic stuff in our pages as content as far as SEO keywords were concerned. Nothing targeted, but just enough content to inform the user about the website. We had found some pretty good improvement with impressions and views after we <a href="http://squareprism.github.io/blog/2013/08/04/Optimizing-TOC-Privacy-Policy-for-SEO">optimized our Terms and Privacy policy pages earlier</a>.</p>
+
+<p>Having had some decent success, we went about adding more content to our page to have a better coverage of keywords (Yes. we wanted to be ranked better for those top 100 keywords!). Added some interesting questions and answers that were relevant to the site. Created a separate FAQ page. Added the page to the Sitemap. Let Google know about it. And waited.</p>
+
+<p>The result. In two weeks our page ranking dropped and the number of impressions dropped by 60%.</p>
+
+<p>On frantic analysis, found that the keyword density for those KWs that were helping us get so many impressions had dropped due to the new content added. And that resulted in far fewer hits than earlier.</p>
+
+<p>Lesson learned. Be careful with adding new text content to your site as it could hurt SEO in a big way. One possible solution could be adding the new content to a separate blog page and convert users from that page to your site.</p>
+
+<p>As of now, we have removed the added page and waiting for results. It may be a couple of weeks before we see any change, but we will update here when we see any improvements.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Optimizing TOC and Privacy Policy for Single Page Apps]]></title>
+    <link href="http://squareprism.github.io/blog/2013/08/04/Optimizing-TOC-Privacy-Policy-for-SEO/"/>
+    <updated>2013-08-04T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2013/08/04/Optimizing-TOC-Privacy-Policy-for-SEO</id>
+    <content type="html"><![CDATA[<p><strong>One Line Advice = ‘Don’t Include in your Single Page’</strong></p>
+
+<p>Single Page Applications written in Javascript are very popular these days. All content loads in a single page and when the user clicks on links they see ‘blazing’ performance since pages don’t load from the server.</p>
+
+<p>Almost all Apps today need to include pages around the Terms and Conditions (TOC) of use and Privacy Policy pages. Often times these pages have content that runs into many paragraphs and could be a significant portion of your site/apps content.</p>
+
+<p>What we don’t realize when we add these monstrous pages of legal ramblings is how they impact our websites SEO in a negative fashion. When we have 100 words or relevant content in our app and 2000 words of legalese all included in a single page, the relevant content becomes 5% of overall site from a search engine perspective. Important keywords will have a much lower density and this has a significant effect on your page rankings.</p>
+
+<p>The solution. Get rid of TOC and Privacy from your single page and add them as separate page URLs. Use your robot.txt to disallow the terms and privacy pages from getting indexed. Soon you will start seeing much more relevant content keywords within your webmaster console and better impressions overall.</p>
+
+<p>See below a sample robots.txt on how you should configure your website. Reach out to your webmaster now.</p>
+
+<p><img src="http://squareprism.github.io/images/robots_txt.png" alt="Sample Robots Txt" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Making Sense of Lean Startup Strategies]]></title>
+    <link href="http://squareprism.github.io/blog/2012/09/09/making-sense-of-lean-startup-strategies/"/>
+    <updated>2012-09-09T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2012/09/09/making-sense-of-lean-startup-strategies</id>
+    <content type="html"><![CDATA[A summary of new lean startup principles and how they relate to each other.
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/14221127" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
+<div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/harihasa/making-senseleanstartups" title="Making Sense of Lean Startup Strategies" target="_blank">Making Sense of Lean Startup Strategies</a> </strong> from <strong><a href="http://www.slideshare.net/harihasa" target="_blank">Sathish Hariharan</a></strong> </div>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Product Design (and Marketing) Based on User Behavior]]></title>
+    <link href="http://squareprism.github.io/blog/2012/08/08/product-design-and-marketing-based-on-user-behavior/"/>
+    <updated>2012-08-08T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2012/08/08/product-design-and-marketing-based-on-user-behavior</id>
+    <content type="html"><![CDATA[<div style="text-align: justify;text-justify: inter-word;">
+<p><strong><a title="Edit “Product Design (and Marketing) based on user behavior”" href="http://squareprism.wordpress.com/wp-admin/post.php?post=276&amp;action=edit">Product Design (and Marketing) based on user behavior</a></strong></p>
+<p><a title="Behavior By Design Video" href="http://www.nirandfar.com/2012/07/behaviorbydesignvideo.html">An excellent article</a> by Nir Eyal that encourages product developers to build technology based on user behaviors. NIr suggests using a framework called the Desire Engine Canvas to think of how a product can engage users.</p>
+<p>The beauty of the framework is it subtly makes product designers focus on &#8220;marketing&#8221; or &#8220;engaging&#8221; users with product features rather than just providing functionality. Nir recommends that a product user needs to be taken through desire engine cycles to form the habit of using your product.</p>
+<p>The desire engine cycle consists of four simple steps, 1) an internal or external trigger, 2) an action by the user as soon as they use your product, 3) A variable reward for the action performed and 4) a commitment action performed by the user to move them to the next cycle. The hypothesis is that the faster one gets users get through a desire engine cycle and the faster users perform multiple cycles and form a habit. Once a habit is formed users keep coming back to your product or site driven by internal triggers!</p>
+</div>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The Best Tech Startup Founder Team - a Hacker and a Hustler]]></title>
+    <link href="http://squareprism.github.io/blog/2012/03/15/the-best-tech-startup-founder-team-a-hacker-and-a-hustler/"/>
+    <updated>2012-03-15T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2012/03/15/the-best-tech-startup-founder-team-a-hacker-and-a-hustler</id>
+    <content type="html"><![CDATA[<div style="text-align: justify;text-justify: inter-word;">
+<p><span style="text-decoration:underline;"><strong>The Best Tech startup founder team - A Hacker and a Hustler</strong></span></p>
+<p>A great article from <a href="http://learntoduck.com/category/micah/">Micah </a>on who or what a Hacker/Hustler team is. Check out<a title="Hackers and Hustlers" href="http://learntoduck.com/micah/hackers-hustlers/"> Hacker and Hustlers</a>. This is how he defines hackers and hustlers</p>
+<p><span style="text-decoration:underline;"><strong>Hacker</strong> </span>-  A Hacker is someone who looks the problem, and solves it in a unique and special way. A Hacker finds the process of problem solving exciting and interesting, and spends the majority of their time looking at the problem in multiple ways, finding many potential solutions.</p>
+<p><span style="text-decoration:underline;"><strong>Hustler</strong> </span>- A Hustler on the other other hand is a relationship builder. Someone who can build direct relationships with their customers. They are passion people. They have the ability to articulate their passion clearly and in a way that gets other people equally passionate.</p>
+<p>Something for me to keep coming back to as my search for a hustler (along with <a title="Search versus Execute" href="http://steveblank.com/2012/03/05/search-versus-execute/">searching for a business mode1</a>) continues&#8230;..</p>
+</div>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Startup Is "Searching for a Business Model"]]></title>
+    <link href="http://squareprism.github.io/blog/2012/03/15/startup-is-searching-for-a-business-model/"/>
+    <updated>2012-03-15T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2012/03/15/startup-is-searching-for-a-business-model</id>
+    <content type="html"><![CDATA[<div style="text-align: justify;text-justify: inter-word;">
+<p><span style="text-decoration:underline;"><strong>What does a startup do?</strong></span></p>
+<p>&#8220;In a perfect world you build your vision and your customers would run to buy your first product exactly as you spec’d and built it. We now know that this ‘build it and they will come” is a prayer rather than a business strategy.  In reality, a startup is a <a href="http://steveblank.com/2010/01/25/whats-a-startup-first-principles/" target="_blank">temporary </a><a href="http://steveblank.com/2010/01/25/whats-a-startup-first-principles/" target="_blank">organization designed to search for a repeatable and scalable business model</a>. This means the brilliant idea you started with<em>will change </em>as you <em>iterate and <a href="http://steveblank.com/2010/04/12/why-startups-are-agile-and-opportunistic-%E2%80%93-pivoting-the-business-model/" target="_blank">pivot</a></em> your business model until you find product/market fit.&#8221;</p>
+<p>From the Steve Blank article <a title="the startup team" href="http://steveblank.com/2011/12/13/the-startup-team/">the startup team</a></p>
+</div>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Lean Startup]]></title>
+    <link href="http://squareprism.github.io/blog/2012/02/12/lean-startup/"/>
+    <updated>2012-02-12T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2012/02/12/lean-startup</id>
+    <content type="html"><![CDATA[<p><span style="text-decoration:underline;"><strong>What is a Lean Startup?</strong></span></p>
+<p>If you are wondering what a lean startup is after reading the headline of this website. This is a good set of slides.</p>
+
+<iframe src="//www.slideshare.net/slideshow/embed_code/5771753?rel=0" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/sblank/successful-entrepreneurship-1" title="Successful entrepreneurship 1" target="_blank">Successful entrepreneurship 1</a> </strong> from <strong><a href="http://www.slideshare.net/sblank" target="_blank">steve blank</a></strong> </div>
+
+<div style="padding:5px 0 12px;">View more presentations from <a href="http://www.slideshare.net/sblank" target="_blank">steve blank</a></div>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Which Technology?]]></title>
+    <link href="http://squareprism.github.io/blog/2011/11/30/which-technology/"/>
+    <updated>2011-11-30T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2011/11/30/which-technology</id>
+    <content type="html"><![CDATA[<div style="text-align: justify;text-justify: inter-word;">
+<h3>Which server technology/framework should you choose to build your next minimum viable product?</h3>
+<p>When I started out to build MediaNearby, I spent almost 8-10 weeks evaluating the best-fit technology to build a minimum viable solution. My learning? When you start out, have just one criteria - whatever lets you build the core functionality with minimum amount of time. Evaluating for scalability, flexibility, etc is a waste of time. I am documenting my experience so developers with similar background and problem set find this helpful. I am assuming that the front-end technology used would be HTML5 and Javascript.</p>
+<p>I have spent close to 7 years developing java based applications. Hence I am naturally comfortable with this programming language. My requirement was to develop scalable search and cataloging and I did not want to build something from scratch if robust libraries were already available. I wanted to deploy the system on a cloud service provider like Amazon EC2 or Google.</p>
+<p>The problem with being a &#8220;techie&#8221; is when you evaluate a technology you want to dabble around with cool new technologies for as long as possible. Learning a new language is as exciting as buying the next cool gadget. Without a clear objective/criteria one ends up wasting time instead of making progress.</p>
+<p>I started evaluating technologies to build the server side logic around early 2010 . The most popular web 2.0 frameworks were Ruby on Rails and Lift-Scala (Twitter had rewritten their servers in Scala, FourSquare is on Lift-Scala). Node.js was just becoming popular. I briefly looked into Grails as well.</p>
+<p>I spent some time to learn Ruby and Rails trying to understand new constructs like closures, convention over configuration, scaffolding, and so on. One of the challenges with Rails was that the concepts around packaging were very different compared to Java and I could never get my head around how &#8220;gem install&#8221; worked. The other issue with Rails at that time was that it was not easily portable across cloud platforms. Google appengine did not support Ruby and one had to use a JVM (jRuby) to run Rails. jRuby was always a step behind Ruby versions and that did not help. Rails also required one to build C based modules for frameworks like jRuby for which the base modules were not available.</p>
+<p>It soon became apparent that java was a popular ecosystem supported by cloud environments and running a framework based on Java would make life easy. The popular JVM based script languages were Scala and Groovy because of availability of Lift and Grails frameworks respectively. Lift and Scala was being used by Twitter and provided a high-performance ecosystem. So I decided to try out Scala next. Scala as a programming language is easy to understand once you learn Ruby as it has similar constructs. The big challenge was understanding Lift. For someone who has an MVC background, understanding the &#8220;build view first&#8221; and then the rest architecture was extremely difficult to understand. Also, the documentation for Lift mostly focussed on &#8216;Chat&#8217; kind of applications that fit well into the Comet based architecture. Though I gained understanding of how Lift works later, at that time it was a no-go.</p>
+<p>The next natural selection was Groovy and Grails. When I dug deeper into Groovy I was surprised to find how well it integrates with the Java language and also makes use of enterprise grade technologies like Spring and Hibernate under the hood. The big bonus was the ability to use any opensource or commercial libraries that have been developed over the last 15 years. Also the plugin based architecture of Grails made the framework quite extensible and was helping to build an active ecosystem around this framework. SpringSource endorsement of the framework and active participation was another plus.</p>
+<p>The Groovy language constructs are similar to Ruby or Scala, but Groovy also allows one to write java code. Calling a java library and vice-versa is a first-class language feature in Groovy. Features like convention over configuration, scaffolding, templates, partials, tag-libraries, plugins and an MVC architecture at the heart of the framework resonates very well with Java and Spring developers. Deploying a grails application is simply copying a war file to a web servlet container.</p>
+<p>I also realized that ramping up a java developer in Grails would be easier than other frameworks.</p>
+<p>The combination of familiarity with java, convention over configuration, availability of a comprehensive set of libraries, ultimately helped the decision to choose Grails.  For someone with a background in Java and java based open-source technologies, trying to build a minimum-viable-product, I would strongly recommend Grails/Groovy over frameworks like Rails, Django, Lift, Node.js, etc</p>
+</div>]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Adaptive Javascript in Grails With JQuery]]></title>
+    <link href="http://squareprism.github.io/blog/2011/03/21/jquery-adaptive-grails/"/>
+    <updated>2011-03-21T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2011/03/21/jquery-adaptive-grails</id>
+    <content type="html"><![CDATA[<div style="text-align: justify;text-justify: inter-word;">
+<i>This article in now outdated</i>
+<h3>Adaptive Javascript in Grails with JQuery</h3>
+<p>The <a href="http://www.grails.org">Grails</a> framework uses a technology called <a href="http://grails.org/doc/latest/guide/6.%20The%20Web%20Layer.html#6.7 Ajax">Adaptive Javascript</a> that enables easy development of Ajax requests. Developers can code Ajax enabled links and forms using a set of standard grails tags such as &lt;g:remoteLink&gt; or &lt;g:remoteForm&gt; in Groovy server pages and Grails internally generates the required javascript code to send the Ajax requests to servers based on the javascript library configured to work with Grails. Grails uses the <a href="http://www.prototypejs.org/">Prototype</a> library by default and the 1.4 version promises to move to <a href="http://www.jquery.com">jQuery</a> as the standard. The code written is non-obtrusive, i.e. if Javascript is not enabled the forms or links will work as normal html forms or links respectively.</p>
+<p>There is one caveat to using this method though. There are cases where the developer is required to call a custom function based on the result of an Ajax request. The standard documentation states the method signature to be used for such Ajax events of the form <em>&#8220;<span style="color:#222222;font-family:'Courier 10 Pitch', Courier, monospace;"><span style="font-size:15px;line-height:21px;white-space:pre;">onSucess=&#8217;fireMe(e)&#8217;&#8221;</span></span></em></p>
+<p>This is typical to the Prototype library and does not work with jQuery. When using jQuery, the browser will complain about unknown event &#8216;e&#8217;. The way to get this working is to make sure the signature used follows the accepted jQuery standard which is <em>&#8220;onSucess=&#8217;fireMe(data, textStatus)&#8217;&#8221;</em> where data is the response data of the Ajax call and textStatus is the HTTP status of the Ajax request in string form</p>
+<p><strong>Update Nov 2011</strong>: As of Grails 2.0, the default javascript library is JQuery and the Prototype way of adaptive javascript no longer works. Please refer the <a href="http://grails.org/doc/latest/">Grails framework documentation</a>.</p>
+<p><span style="color:#222222;font-family:'Courier 10 Pitch', Courier, monospace;"><span style="font-size:15px;line-height:21px;white-space:pre;"><br />
+</span></span></p>
+</div>]]></content>
+  </entry>
   
 </feed>
