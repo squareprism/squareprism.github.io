@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://squareprism.github.io/sitemap.xml 

@@ -1,0 +1,25 @@
+---
+layout: post
+title: Which Technology?
+categories:
+- Articles
+tags: []
+status: publish
+type: post
+published: true
+meta: {}
+author: 
+---
+<div style="text-align: justify;text-justify: inter-word;">
+<h3>Which server technology/framework should you choose to build your next minimum viable product?</h3>
+<p>When I started out to build MediaNearby, I spent almost 8-10 weeks evaluating the best-fit technology to build a minimum viable solution. My learning? When you start out, have just one criteria - whatever lets you build the core functionality with minimum amount of time. Evaluating for scalability, flexibility, etc is a waste of time. I am documenting my experience so developers with similar background and problem set find this helpful. I am assuming that the front-end technology used would be HTML5 and Javascript.</p>
+<p>I have spent close to 7 years developing java based applications. Hence I am naturally comfortable with this programming language. My requirement was to develop scalable search and cataloging and I did not want to build something from scratch if robust libraries were already available. I wanted to deploy the system on a cloud service provider like Amazon EC2 or Google.</p>
+<p>The problem with being a "techie" is when you evaluate a technology you want to dabble around with cool new technologies for as long as possible. Learning a new language is as exciting as buying the next cool gadget. Without a clear objective/criteria one ends up wasting time instead of making progress.</p>
+<p>I started evaluating technologies to build the server side logic around early 2010 . The most popular web 2.0 frameworks were Ruby on Rails and Lift-Scala (Twitter had rewritten their servers in Scala, FourSquare is on Lift-Scala). Node.js was just becoming popular. I briefly looked into Grails as well.</p>
+<p>I spent some time to learn Ruby and Rails trying to understand new constructs like closures, convention over configuration, scaffolding, and so on. One of the challenges with Rails was that the concepts around packaging were very different compared to Java and I could never get my head around how "gem install" worked. The other issue with Rails at that time was that it was not easily portable across cloud platforms. Google appengine did not support Ruby and one had to use a JVM (jRuby) to run Rails. jRuby was always a step behind Ruby versions and that did not help. Rails also required one to build C based modules for frameworks like jRuby for which the base modules were not available.</p>
+<p>It soon became apparent that java was a popular ecosystem supported by cloud environments and running a framework based on Java would make life easy. The popular JVM based script languages were Scala and Groovy because of availability of Lift and Grails frameworks respectively. Lift and Scala was being used by Twitter and provided a high-performance ecosystem. So I decided to try out Scala next. Scala as a programming language is easy to understand once you learn Ruby as it has similar constructs. The big challenge was understanding Lift. For someone who has an MVC background, understanding the "build view first" and then the rest architecture was extremely difficult to understand. Also, the documentation for Lift mostly focussed on 'Chat' kind of applications that fit well into the Comet based architecture. Though I gained understanding of how Lift works later, at that time it was a no-go.</p>
+<p>The next natural selection was Groovy and Grails. When I dug deeper into Groovy I was surprised to find how well it integrates with the Java language and also makes use of enterprise grade technologies like Spring and Hibernate under the hood. The big bonus was the ability to use any opensource or commercial libraries that have been developed over the last 15 years. Also the plugin based architecture of Grails made the framework quite extensible and was helping to build an active ecosystem around this framework. SpringSource endorsement of the framework and active participation was another plus.</p>
+<p>The Groovy language constructs are similar to Ruby or Scala, but Groovy also allows one to write java code. Calling a java library and vice-versa is a first-class language feature in Groovy. Features like convention over configuration, scaffolding, templates, partials, tag-libraries, plugins and an MVC architecture at the heart of the framework resonates very well with Java and Spring developers. Deploying a grails application is simply copying a war file to a web servlet container.</p>
+<p>I also realized that ramping up a java developer in Grails would be easier than other frameworks.</p>
+<p>The combination of familiarity with java, convention over configuration, availability of a comprehensive set of libraries, ultimately helped the decision to choose Grails.  For someone with a background in Java and java based open-source technologies, trying to build a minimum-viable-product, I would strongly recommend Grails/Groovy over frameworks like Rails, Django, Lift, Node.js, etc</p>
+</div>

@@ -1,0 +1,391 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Concurrent Testing in Grails With GPars and Spock - SquarePrism</title>
+  <meta name="author" content="squareprism.com">
+
+  
+  <meta name="description" content="Last month I did a major backend refactoring of on of our applications and was feeling happy about how much the code has been simplified and easier &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://squareprism.github.io/blog/2014/03/06/Concurrent-Testing-in-Grails-with-GPars">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="SquarePrism" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "ur-c3075a80-e1-d57c-8f9a-a240a9aae407", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-52511039-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <div>
+  <div style="padding-left: 20px;background-color: #ffffff;"><a href="/">
+      <img src="/images/SquarePrismLogo.png" alt="">
+  </a>
+  </div>
+  
+
+
+</div>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/archives">Timeline</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Concurrent Testing in Grails With GPars and Spock</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-06T00:00:00+05:30" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>Last month I did a major backend refactoring of on of our applications and was feeling happy about how
+ much the code has been simplified and easier to understand. All was well until suddenly, we started getting strange
+errors in production. Our set of unit and integration tests had passed and I was quite confident that nothing
+had broken.</p>
+
+<p>With a few hours of debugging and head scratching, I nailed the problem down to some mutable variables that
+were being shared across multiple threads and sessions. In order to avoid initiating and creating multiple
+objects of a particular service, we had converted it to a Singleton, and the resulting change caused some
+variables ending up shared between multiple threads and break down the complete application. We did not have
+any unit or integration tests developed to test for concurrency and hence could not catch the issues earlier</p>
+
+<p>This experience led me to write test cases for concurrency and subsequent evaluation of technologies appropriate
+for developing concurrent applications. A few hours of reading opened my eyes to how much the world of
+ concurrent programming for the JVM had changed in the last few years. My experience is core java were from
+Java 2.0 years and with constructs like Thread, Runnable and Synchronized methods.</p>
+
+<p>Java 5.0 has apparently changed the space completely with introduction of the new util.concurrent package. Here
+are some of the things are now possible now when using the modern JDK</p>
+
+<pre><code>* Manage your own thread pool using Executor Services
+* Use the concept of callable to asynchronously call and receive responses from thread
+* Coordinate threads using Countdown latches (similar to Semaphores in C++)
+* Better data structures for data exchange between threads - BlockingQueue
+* Collection data structures - ConcurrentQueue, ConcurrentHashmap for better performance
+* Better granularity in synchronizing blocks of code (rather than using object level 'synchronized' methods) using Locks
+</code></pre>
+
+<p>Further exploring the topic I came across new libraries that were available to implement concurrency using
+implementation patterns like Memory Transactions and Actors. The prominent ones for the JVM were Akka and GPars.</p>
+
+<p>Akka is implemented in Scala and supports both of the patterns mentioned - it supports software transactional
+memory (STM) by using specialized transactional primitives that can be modified only within defined transactions.
+It also supports the concept of defining Actors - Objects that extended an Actor Object would always have their
+methods executed in separate threads. The Actor pattern of concurrency is also supported by the Groovy GPars
+library.</p>
+
+<p>Since Grails obviously played best with Groovy, and also since the implementation of concurrent did not involve
+ complex synchronizations, I chose to implement concurrent Spock tests using GPars. The combination of Spock&rsquo;s
+ highly expressive specification language and the clean design of GPars makes writing tests quite enjoyable.</p>
+
+<p>For example Spock allows Data Driven testing and allows you to wite tests like</p>
+
+<pre><code>class MathSpec extends Specification {
+    def "maximum of two numbers"() {
+        expect:
+        // exercise math method for a few different inputs
+        Math.max(1, 3) == 3
+        Math.max(7, 4) == 7
+        Math.max(0, 0) == 0
+    }
+}
+</code></pre>
+
+<p>GPars allows you to implement concurrent execution with a pool of threads and groovy collections like so:</p>
+
+<pre><code>withPool {
+    def selfPortraits = images
+        .findAllParallel{it.contains me}
+        .collectParallel {it.resize()}
+}
+</code></pre>
+
+<p>Combining these two results is extremely intuitive parallel test cases. I have included one of our example test
+cases below:</p>
+
+<pre><code>package com.squareprism.xyz
+
+import grails.test.mixin.TestMixin
+import grails.test.mixin.support.GrailsUnitTestMixin
+import spock.lang.Specification
+import static groovyx.gpars.GParsPool.*
+
+/**
+ * See the API for {@link grails.test.mixin.support.GrailsUnitTestMixin} for usage instructions
+ */
+@TestMixin(GrailsUnitTestMixin)
+class ParallelXYZGeneratorSpec extends Specification {
+
+    // data array for test data
+    def dataArray = [
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55],
+            [11.26, 75.78, 25, 11, 1973, 4, 55]
+    ]
+    def results // collect results here
+
+    def setup() {
+    }
+
+    def cleanup() {
+    }
+
+    void "test Parallel XYZ Generation"() {
+        given:
+        withPool(8) { // use 8 parallel threads
+            results = dataArray.collectParallel{
+                return XYZGenerator.calculate(it[0], it[1], it[2], it[3], it[4], it[5], it[6])
+            }
+        }
+
+
+        expect:
+            results.size() == 8
+
+    }
+}
+</code></pre>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sathish Hariharan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-06T00:00:00+05:30" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/articles/'>articles</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://squareprism.github.io/blog/2014/03/06/Concurrent-Testing-in-Grails-with-GPars/" data-via="squareprism" data-counturl="http://squareprism.github.io/blog/2014/03/06/Concurrent-Testing-in-Grails-with-GPars/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="small"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/10/31/httpinsideintercom-iohow-to-educate-persuade-customers/" title="Previous Post: An article from intercom.io - How to educate and persuade your customers">&laquo; An article from intercom.io - How to educate and persuade your customers</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2014/06/04/Lean-and-Agile-Development-The-Big-Picture/" title="Next Post: Lean and Agile Development, The Big Picture">Lean and Agile Development, The Big Picture &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/30/Open-Source-Book-Discovery-App/">Open Source Book Discovery App - LocalReads</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/05/Why-Develop-T-Shaped-Resources/">Why Develop T-Shaped Resources for Agile Development</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/30/AngularJS-is-not-just-MVC/">AngularJS Is Not Just an MVC Framework</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/22/Web-Security-with-Grails/">Securing Web Applications With Grails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/01/Which-Database/">Which Database?</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Recent Tweets</h1>
+  <a class="twitter-timeline" href="https://twitter.com/SquarePrism" data-widget-id="484559403496910849">Tweets by @SquarePrism</a>
+   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+</section>
+<section>
+    <h1>Share This Site</h1>
+    <span class='st_facebook_large' displayText='Facebook'></span>
+    <span class='st_twitter_large' displayText='Tweet'></span>
+    <span class='st_linkedin_large' displayText='LinkedIn'></span>
+    <span class='st_email_large' displayText='Email'></span>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - squareprism.com
+</p>
+
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'squareprism';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
