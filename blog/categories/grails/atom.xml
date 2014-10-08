@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Grails | SquarePrism]]></title>
+  <link href="http://squareprism.github.io/blog/categories/grails/atom.xml" rel="self"/>
+  <link href="http://squareprism.github.io/"/>
+  <updated>2014-10-08T17:40:29+05:30</updated>
+  <id>http://squareprism.github.io/</id>
+  <author>
+    <name><![CDATA[squareprism.com]]></name>
+    <email><![CDATA[support@squareprism.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Adaptive Javascript in Grails With JQuery]]></title>
+    <link href="http://squareprism.github.io/blog/2011/03/21/jquery-adaptive-grails/"/>
+    <updated>2011-03-21T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2011/03/21/jquery-adaptive-grails</id>
+    <content type="html"><![CDATA[<div style="text-align: justify;text-justify: inter-word;">
+<i>This article in now outdated</i>
+<h3>Adaptive Javascript in Grails with JQuery</h3>
+<p>The <a href="http://www.grails.org">Grails</a> framework uses a technology called <a href="http://grails.org/doc/latest/guide/6.%20The%20Web%20Layer.html#6.7 Ajax">Adaptive Javascript</a> that enables easy development of Ajax requests. Developers can code Ajax enabled links and forms using a set of standard grails tags such as &lt;g:remoteLink&gt; or &lt;g:remoteForm&gt; in Groovy server pages and Grails internally generates the required javascript code to send the Ajax requests to servers based on the javascript library configured to work with Grails. Grails uses the <a href="http://www.prototypejs.org/">Prototype</a> library by default and the 1.4 version promises to move to <a href="http://www.jquery.com">jQuery</a> as the standard. The code written is non-obtrusive, i.e. if Javascript is not enabled the forms or links will work as normal html forms or links respectively.</p>
+<p>There is one caveat to using this method though. There are cases where the developer is required to call a custom function based on the result of an Ajax request. The standard documentation states the method signature to be used for such Ajax events of the form <em>&#8220;<span style="color:#222222;font-family:'Courier 10 Pitch', Courier, monospace;"><span style="font-size:15px;line-height:21px;white-space:pre;">onSucess=&#8217;fireMe(e)&#8217;&#8221;</span></span></em></p>
+<p>This is typical to the Prototype library and does not work with jQuery. When using jQuery, the browser will complain about unknown event &#8216;e&#8217;. The way to get this working is to make sure the signature used follows the accepted jQuery standard which is <em>&#8220;onSucess=&#8217;fireMe(data, textStatus)&#8217;&#8221;</em> where data is the response data of the Ajax call and textStatus is the HTTP status of the Ajax request in string form</p>
+<p><strong>Update Nov 2011</strong>: As of Grails 2.0, the default javascript library is JQuery and the Prototype way of adaptive javascript no longer works. Please refer the <a href="http://grails.org/doc/latest/">Grails framework documentation</a>.</p>
+<p><span style="color:#222222;font-family:'Courier 10 Pitch', Courier, monospace;"><span style="font-size:15px;line-height:21px;white-space:pre;"><br />
+</span></span></p>
+</div>
+
+]]></content>
+  </entry>
+  
+</feed>

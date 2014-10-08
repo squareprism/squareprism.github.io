@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>SquarePrism</title>
+  <meta name="author" content="squareprism.com">
+
+  
+  <meta name="description" content="Which server technology/framework should you choose to build your next minimum viable product?
+When I started out to build MediaNearby, I spent &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://squareprism.github.io/posts/4">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="SquarePrism" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "ur-c3075a80-e1-d57c-8f9a-a240a9aae407", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-52511039-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <div>
+  <div style="padding-left: 20px;background-color: #ffffff;"><a href="/">
+      <img src="/images/SquarePrismLogo.png" alt="">
+  </a>
+  </div>
+  
+
+
+</div>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/archives">Timeline</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/30/which-technology/">Which Technology?</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-30T00:00:00+05:30" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div style="text-align: justify;text-justify: inter-word;">
+<h3>Which server technology/framework should you choose to build your next minimum viable product?</h3>
+<p>When I started out to build MediaNearby, I spent almost 8-10 weeks evaluating the best-fit technology to build a minimum viable solution. My learning? When you start out, have just one criteria - whatever lets you build the core functionality with minimum amount of time. Evaluating for scalability, flexibility, etc is a waste of time. I am documenting my experience so developers with similar background and problem set find this helpful. I am assuming that the front-end technology used would be HTML5 and Javascript.</p>
+<p>I have spent close to 7 years developing java based applications. Hence I am naturally comfortable with this programming language. My requirement was to develop scalable search and cataloging and I did not want to build something from scratch if robust libraries were already available. I wanted to deploy the system on a cloud service provider like Amazon EC2 or Google.</p>
+<p>The problem with being a &#8220;techie&#8221; is when you evaluate a technology you want to dabble around with cool new technologies for as long as possible. Learning a new language is as exciting as buying the next cool gadget. Without a clear objective/criteria one ends up wasting time instead of making progress.</p>
+<p>I started evaluating technologies to build the server side logic around early 2010 . The most popular web 2.0 frameworks were Ruby on Rails and Lift-Scala (Twitter had rewritten their servers in Scala, FourSquare is on Lift-Scala). Node.js was just becoming popular. I briefly looked into Grails as well.</p>
+<p>I spent some time to learn Ruby and Rails trying to understand new constructs like closures, convention over configuration, scaffolding, and so on. One of the challenges with Rails was that the concepts around packaging were very different compared to Java and I could never get my head around how &#8220;gem install&#8221; worked. The other issue with Rails at that time was that it was not easily portable across cloud platforms. Google appengine did not support Ruby and one had to use a JVM (jRuby) to run Rails. jRuby was always a step behind Ruby versions and that did not help. Rails also required one to build C based modules for frameworks like jRuby for which the base modules were not available.</p>
+<p>It soon became apparent that java was a popular ecosystem supported by cloud environments and running a framework based on Java would make life easy. The popular JVM based script languages were Scala and Groovy because of availability of Lift and Grails frameworks respectively. Lift and Scala was being used by Twitter and provided a high-performance ecosystem. So I decided to try out Scala next. Scala as a programming language is easy to understand once you learn Ruby as it has similar constructs. The big challenge was understanding Lift. For someone who has an MVC background, understanding the &#8220;build view first&#8221; and then the rest architecture was extremely difficult to understand. Also, the documentation for Lift mostly focussed on &#8216;Chat&#8217; kind of applications that fit well into the Comet based architecture. Though I gained understanding of how Lift works later, at that time it was a no-go.</p>
+<p>The next natural selection was Groovy and Grails. When I dug deeper into Groovy I was surprised to find how well it integrates with the Java language and also makes use of enterprise grade technologies like Spring and Hibernate under the hood. The big bonus was the ability to use any opensource or commercial libraries that have been developed over the last 15 years. Also the plugin based architecture of Grails made the framework quite extensible and was helping to build an active ecosystem around this framework. SpringSource endorsement of the framework and active participation was another plus.</p>
+<p>The Groovy language constructs are similar to Ruby or Scala, but Groovy also allows one to write java code. Calling a java library and vice-versa is a first-class language feature in Groovy. Features like convention over configuration, scaffolding, templates, partials, tag-libraries, plugins and an MVC architecture at the heart of the framework resonates very well with Java and Spring developers. Deploying a grails application is simply copying a war file to a web servlet container.</p>
+<p>I also realized that ramping up a java developer in Grails would be easier than other frameworks.</p>
+<p>The combination of familiarity with java, convention over configuration, availability of a comprehensive set of libraries, ultimately helped the decision to choose Grails.  For someone with a background in Java and java based open-source technologies, trying to build a minimum-viable-product, I would strongly recommend Grails/Groovy over frameworks like Rails, Django, Lift, Node.js, etc</p>
+</div></div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/03/21/jquery-adaptive-grails/">Adaptive Javascript in Grails With JQuery</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-21T00:00:00+05:30" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><div style="text-align: justify;text-justify: inter-word;">
+<i>This article in now outdated</i>
+<h3>Adaptive Javascript in Grails with JQuery</h3>
+<p>The <a href="http://www.grails.org">Grails</a> framework uses a technology called <a href="http://grails.org/doc/latest/guide/6.%20The%20Web%20Layer.html#6.7 Ajax">Adaptive Javascript</a> that enables easy development of Ajax requests. Developers can code Ajax enabled links and forms using a set of standard grails tags such as &lt;g:remoteLink&gt; or &lt;g:remoteForm&gt; in Groovy server pages and Grails internally generates the required javascript code to send the Ajax requests to servers based on the javascript library configured to work with Grails. Grails uses the <a href="http://www.prototypejs.org/">Prototype</a> library by default and the 1.4 version promises to move to <a href="http://www.jquery.com">jQuery</a> as the standard. The code written is non-obtrusive, i.e. if Javascript is not enabled the forms or links will work as normal html forms or links respectively.</p>
+<p>There is one caveat to using this method though. There are cases where the developer is required to call a custom function based on the result of an Ajax request. The standard documentation states the method signature to be used for such Ajax events of the form <em>&#8220;<span style="color:#222222;font-family:'Courier 10 Pitch', Courier, monospace;"><span style="font-size:15px;line-height:21px;white-space:pre;">onSucess=&#8217;fireMe(e)&#8217;&#8221;</span></span></em></p>
+<p>This is typical to the Prototype library and does not work with jQuery. When using jQuery, the browser will complain about unknown event &#8216;e&#8217;. The way to get this working is to make sure the signature used follows the accepted jQuery standard which is <em>&#8220;onSucess=&#8217;fireMe(data, textStatus)&#8217;&#8221;</em> where data is the response data of the Ajax call and textStatus is the HTTP status of the Ajax request in string form</p>
+<p><strong>Update Nov 2011</strong>: As of Grails 2.0, the default javascript library is JQuery and the Prototype way of adaptive javascript no longer works. Please refer the <a href="http://grails.org/doc/latest/">Grails framework documentation</a>.</p>
+<p><span style="color:#222222;font-family:'Courier 10 Pitch', Courier, monospace;"><span style="font-size:15px;line-height:21px;white-space:pre;"><br />
+</span></span></p>
+</div></div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a style="padding-left: 50px;" href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/3">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/30/Open-Source-Book-Discovery-App/">Open Source Book Discovery App - LocalReads</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/05/Why-Develop-T-Shaped-Resources/">Why Develop T-Shaped Resources for Agile Development</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/30/AngularJS-is-not-just-MVC/">AngularJS Is Not Just an MVC Framework</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/22/Web-Security-with-Grails/">Securing Web Applications With Grails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/01/Which-Database/">Which Database?</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Recent Tweets</h1>
+  <a class="twitter-timeline" href="https://twitter.com/SquarePrism" data-widget-id="484559403496910849">Tweets by @SquarePrism</a>
+   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+</section>
+<section>
+    <h1>Share This Site</h1>
+    <span class='st_facebook_large' displayText='Facebook'></span>
+    <span class='st_twitter_large' displayText='Tweet'></span>
+    <span class='st_linkedin_large' displayText='LinkedIn'></span>
+    <span class='st_email_large' displayText='Email'></span>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - squareprism.com
+</p>
+
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'squareprism';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Open Source Book Discovery App - LocalReads - SquarePrism</title>
+  <meta name="author" content="squareprism.com">
+
+  
+  <meta name="description" content="I worked on an idea for discovery of books a couple of years ago. The idea was simple - make a catalog of your paper books
+online and tag your &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://squareprism.github.io/blog/2014/09/30/Open-Source-Book-Discovery-App">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="SquarePrism" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "ur-c3075a80-e1-d57c-8f9a-a240a9aae407", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-52511039-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <div>
+  <div style="padding-left: 20px;background-color: #ffffff;"><a href="/">
+      <img src="/images/SquarePrismLogo.png" alt="">
+  </a>
+  </div>
+  
+
+
+</div>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<ul class="main-navigation">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blog/archives">Timeline</a></li>
+  <li><a href="/about/">About</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Open Source Book Discovery App - LocalReads</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-30T00:00:00+05:30" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>I worked on an idea for discovery of books a couple of years ago. The idea was simple - make a catalog of your paper books
+online and tag your location to it. Friends and neighbours would then be able to search for a book using the service and
+discover books in your shelf. The service would allow making requests for books and manage subsequent interactions between
+users. I tried developing this concept in residential communities, colleges and online book groups but did not get significant
+traction to pursue it as a serious business.</p>
+
+<p>In the couple of years that followed there were many others who approached or discussed the same idea online and otherwise.
+I discouraged some of the folks explaining my experiences with traction. I am sure many more would want to try it out. But
+the fact that there are many people with the same idea points to a possible passionate market however small it maybe. Most of
+the code I had developed was lying idle and I thought it would help folks trying to build this concept from scratch if I
+open sourced the codebase.</p>
+
+<p>In the last few weeks I refactored the old code and built out a <a href="https://play.google.com/store/apps/details?id=com.squareprism.localreads.ver1">mobile app</a> with the same backend, but used newer technologies
+to build better capabilities and with less code. I have published the app for free on Android platform. You can check it out
+at <a href="https://play.google.com/store/apps/details?id=com.squareprism.localreads.ver1">here</a>. The code is open source and published in github.</p>
+
+<p><img src="/images/localreads-android-page.png" alt="localreads" /></p>
+
+<p>The android app is developed using the <a href="http://www.ionicframework.com">Ionic-Angular framework</a> that lets you build hybrid
+(html + native) apps. The backend service is implemented as a set of REST apis using <a href="http://www.grails.org">Grails</a> with
+a MongoDB database. You can check out the code on github at the following locations.</p>
+
+<ul>
+<li>LocalReads Mobile App Codebase - <a href="https://github.com/sathishc/localreads">https://github.com/sathishc/localreads</a></li>
+<li>LocalReads backend service - <a href="https://github.com/sathishc/localreads-service">https://github.com/sathishc/localreads-service</a></li>
+</ul>
+
+
+<p>See instructions for building the codebase in the corresponding github repositories. The front end code uses Protractor/Jasmine for
+End-to-End testing and Karma/Jasmine for unit tests. The backend uses Spock framework for testing the apis.</p>
+
+<p>The code base will help developers trying to build similar capabilities for other apps - location
+based full-text search, real-time messaging, restful and stateless service, hybrid mobile app using cordova, etc</p>
+
+<p>To build a full stateless restful service in grails I have used the <a href="https://github.com/alvarosanchez/grails-spring-security-rest">Spring Security Rest plugin</a>
+as the normal spring security based authentication relies on sessions to be maintained. Real-time messaging is
+implemented using <a href="http://grails.org/plugin/spring-websocket">Spring Websockets</a>. Reach out if you are looking for help in these areas.</p>
+
+<p>All of the code is distributed under the Creative Commons License 4.0.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Sathish Hariharan</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-30T00:00:00+05:30" pubdate data-updated="true"></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/articles/'>articles</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://squareprism.github.io/blog/2014/09/30/Open-Source-Book-Discovery-App/" data-via="squareprism" data-counturl="http://squareprism.github.io/blog/2014/09/30/Open-Source-Book-Discovery-App/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="small"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2014/08/05/Why-Develop-T-Shaped-Resources/" title="Previous Post: Why Develop T-Shaped Resources for Agile Development">&laquo; Why Develop T-Shaped Resources for Agile Development</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/09/30/Open-Source-Book-Discovery-App/">Open Source Book Discovery App - LocalReads</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/05/Why-Develop-T-Shaped-Resources/">Why Develop T-Shaped Resources for Agile Development</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/30/AngularJS-is-not-just-MVC/">AngularJS Is Not Just an MVC Framework</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/22/Web-Security-with-Grails/">Securing Web Applications With Grails</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/01/Which-Database/">Which Database?</a>
+      </li>
+    
+  </ul>
+</section>
+<section>
+  <h1>Recent Tweets</h1>
+  <a class="twitter-timeline" href="https://twitter.com/SquarePrism" data-widget-id="484559403496910849">Tweets by @SquarePrism</a>
+   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
+</section>
+<section>
+    <h1>Share This Site</h1>
+    <span class='st_facebook_large' displayText='Facebook'></span>
+    <span class='st_twitter_large' displayText='Tweet'></span>
+    <span class='st_linkedin_large' displayText='LinkedIn'></span>
+    <span class='st_email_large' displayText='Email'></span>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - squareprism.com
+</p>
+
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'squareprism';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

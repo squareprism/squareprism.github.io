@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Articles | SquarePrism]]></title>
+  <link href="http://squareprism.github.io/blog/categories/articles/atom.xml" rel="self"/>
+  <link href="http://squareprism.github.io/"/>
+  <updated>2014-10-08T17:40:29+05:30</updated>
+  <id>http://squareprism.github.io/</id>
+  <author>
+    <name><![CDATA[squareprism.com]]></name>
+    <email><![CDATA[support@squareprism.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Open Source Book Discovery App - LocalReads]]></title>
+    <link href="http://squareprism.github.io/blog/2014/09/30/Open-Source-Book-Discovery-App/"/>
+    <updated>2014-09-30T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/09/30/Open-Source-Book-Discovery-App</id>
+    <content type="html"><![CDATA[<p>I worked on an idea for discovery of books a couple of years ago. The idea was simple - make a catalog of your paper books
+online and tag your location to it. Friends and neighbours would then be able to search for a book using the service and
+discover books in your shelf. The service would allow making requests for books and manage subsequent interactions between
+users. I tried developing this concept in residential communities, colleges and online book groups but did not get significant
+traction to pursue it as a serious business.</p>
+
+<p>In the couple of years that followed there were many others who approached or discussed the same idea online and otherwise.
+I discouraged some of the folks explaining my experiences with traction. I am sure many more would want to try it out. But
+the fact that there are many people with the same idea points to a possible passionate market however small it maybe. Most of
+the code I had developed was lying idle and I thought it would help folks trying to build this concept from scratch if I
+open sourced the codebase.</p>
+
+<p>In the last few weeks I refactored the old code and built out a <a href="https://play.google.com/store/apps/details?id=com.squareprism.localreads.ver1">mobile app</a> with the same backend, but used newer technologies
+to build better capabilities and with less code. I have published the app for free on Android platform. You can check it out
+at <a href="https://play.google.com/store/apps/details?id=com.squareprism.localreads.ver1">here</a>. The code is open source and published in github.</p>
+
+<p><img src="/images/localreads-android-page.png" alt="localreads" /></p>
+
+<p>The android app is developed using the <a href="http://www.ionicframework.com">Ionic-Angular framework</a> that lets you build hybrid
+(html + native) apps. The backend service is implemented as a set of REST apis using <a href="http://www.grails.org">Grails</a> with
+a MongoDB database. You can check out the code on github at the following locations.</p>
+
+<ul>
+<li>LocalReads Mobile App Codebase - <a href="https://github.com/sathishc/localreads">https://github.com/sathishc/localreads</a></li>
+<li>LocalReads backend service - <a href="https://github.com/sathishc/localreads-service">https://github.com/sathishc/localreads-service</a></li>
+</ul>
+
+
+<p>See instructions for building the codebase in the corresponding github repositories. The front end code uses Protractor/Jasmine for
+End-to-End testing and Karma/Jasmine for unit tests. The backend uses Spock framework for testing the apis.</p>
+
+<p>The code base will help developers trying to build similar capabilities for other apps - location
+based full-text search, real-time messaging, restful and stateless service, hybrid mobile app using cordova, etc</p>
+
+<p>To build a full stateless restful service in grails I have used the <a href="https://github.com/alvarosanchez/grails-spring-security-rest">Spring Security Rest plugin</a>
+as the normal spring security based authentication relies on sessions to be maintained. Real-time messaging is
+implemented using <a href="http://grails.org/plugin/spring-websocket">Spring Websockets</a>. Reach out if you are looking for help in these areas.</p>
+
+<p>All of the code is distributed under the Creative Commons License 4.0.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Why Develop T-Shaped Resources for Agile Development]]></title>
+    <link href="http://squareprism.github.io/blog/2014/08/05/Why-Develop-T-Shaped-Resources/"/>
+    <updated>2014-08-05T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/08/05/Why-Develop-T-Shaped-Resources</id>
+    <content type="html"><![CDATA[<p>I first came across the concept of the T-shaped resource in Donald G Reinersten&rsquo;s <a href="http://www.leanproductflow.com/">book</a>
+on Lean Product Development. It is discussed as a principle under the section on applying WIP constraints. The discussions
+revolve around 3 types of individuals with different types of capabilities - experts, generalists and t-shaped resources. The significance
+of this concept struck me later when I started digging into the principles of software <a href="http://kanbanblog.com/explained/">Kanban</a></p>
+
+<p>The core principle of software Kanban stresses on <strong>one-piece-flow</strong>. Unlike techniques like scrum, there is
+no sprint planning that is required to prioritize the user stories for the next sprint, instead the next set of
+high-priority stories are always available in a short-listed version of the product backlog. Development team *pulls&#8221; the
+next story and starts working on them as soon as there is free capacity (i.e. as long as WIP constraints are met). The difference
+from other agile development processes is that when a block is experienced the entire flow is stopped to clear the blockage. This
+is where the concept of different types of resources or profiles come into play. The process of addressing a block is explained in
+the following diagrams that I have borrowed from the <a href="http://www.crisp.se/henrik.kniberg/Kanban-vs-Scrum.pdf">Kanban_and_Scrum</a> InfoQ book</p>
+
+<p><img src="/images/Scrum_vs_Kanban1.png" alt="Kanban 1" /></p>
+
+<p><img src="/images/Scrum_vs_Kanban2.png" alt="Kanban 2" /></p>
+
+<p><img src="/images/Scrum_vs_Kanban3.png" alt="Kanban 3" /></p>
+
+<p>All the three types of profiles (I prefer &lsquo;profiles&rsquo; to &lsquo;resources&rsquo;, it sounds more human) can be used to clear blockages in a
+work queue. <strong>Experts</strong> have tremendous solving power to clear up technical bottlenecks. So deploying experts in each step can help
+clear up blocks. But it is difficult to achieve significant depth of expertise and such profiles are scarce. <strong>Generalists</strong> are
+profiles that can be deployed in any of the steps in a queue. They can be used to clear minor blocks that occur due to resource
+unavailability but again finding resources with knowledge of many steps of the process is again difficult.</p>
+
+<p><strong>T-shaped resources</strong> provide an alternative to the constraints faced in developing and deploying experts and generalists. The idea
+behind a T-shaped profile is an individual who has sufficient depth in a particular area but can also seamlessly shift to adjacent
+process steps in a flow. An example would be an expert tester, who can also move easily to development and deployment. When development
+faces a capacity bottleneck and cannot move a work item forward, this naturally frees up capacity of testers since there are less
+items in their backlog due to upstream WIP constraints. This frees up a T-shaped test resource to easily shift focus to development to clear up
+work items blocked due to lower capacity. As added benefits, such movements also result in improved communication and variety of work.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[AngularJS Is Not Just an MVC Framework]]></title>
+    <link href="http://squareprism.github.io/blog/2014/07/30/AngularJS-is-not-just-MVC/"/>
+    <updated>2014-07-30T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/07/30/AngularJS-is-not-just-MVC</id>
+    <content type="html"><![CDATA[<p>Which Javascript MVC framework should I use? AngularJS or KnockoutJS or Ember or &hellip;? This is a very common question that gets asked by
+javascript developers who want to start using MVC in their applications. Most of the answers to such queries
+usually conclude with &lsquo;it depends&rsquo; on what you need. But there is a bigger problem, one with the question
+itself because Angular (and other frameworks like Ember, Backbone) are not just MVC. They are a lot more.</p>
+
+<p>MVC has been a proven way to address the &lsquo;separation of concerns&rsquo; problem in user interfaces since developers
+started using Smalltalk and the pattern got documented in literature on Design and Architecture patterns. As
+Javascript development passed the threshold of simple to complex web-apps, MVC found its way into Javascript
+in the form  of multiple frameworks. But separation of concerns in the view-model layer is just one of the
+problems of Javascript. Unlike other server side languages like Java or C++ that support language level constructs
+for organization and dependency management (packages, modules), lifecycle management, extensibility (inheritance and
+decoration), and testability via dependency injection, Javascript stays clear of these capabilities. So,
+for someone that wants to develop a complex app, these factors become as equally important as the separation of
+concerns problem.</p>
+
+<p><strong>Organization, Dependency and Lifecycle Management</strong>
+Angular provides the concept of organizing code using a Module.One can think of a module as a container for the
+different parts of your app – controllers, services, filters, directives, etc. Modules  specify how an
+application should be bootstrapped. It has a declarative process easy to understand and promotes reuse.To manage
+the responsibility of dependency creation, each Angular application has an injector. The injector is a service locator
+that is responsible for construction and lookup of dependencies.</p>
+
+<p><strong>Separation of Concerns</strong>
+At the core of Angular are constructs for implementing Template based views, Controllers and data Models. The
+framework uses the concept of &lsquo;scope&rsquo; per controller bound to an HTML element in DOM, and takes care of two-way data
+binding between the UI and the &lsquo;scope&rsquo;. Developer handle changes to scope within controllers and update their models
+appropriately.</p>
+
+<p><strong>Extensibility</strong>
+There are several ways to extend angular and use its features to do work for you. One option is to use specialized
+objects called <em>directives</em> that help build web components. Another option is to implement *providers&#8221;. Custom directives
+are a powerful feature of Angular and eases code reuse.</p>
+
+<p><strong>Testability</strong>
+Angular provides <em>Protractor</em>, an end to end test runner which simulates user interactions that will help one verify
+the health of Angular applications. Protractor along with &lsquo;DI&rsquo; based testable code enhances the quality of apps</p>
+
+<p>If all you need is just a simple app implementing MVC (read TodoMVC) that needs to be fast there are many frameworks
+that fit the bill and Angular may not be the recommended option. But if you have a large and complex codebase that
+requires better organization, testability, extensibility, dependency management, and separation of concerns in the form
+of MVC, then a framework such a Angular is the best bet. Above all in Angular as these larger concerns are part of
+the framework construct, as our code base grows to large sizes, it allows us maintain our sanity !!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Securing Web Applications With Grails]]></title>
+    <link href="http://squareprism.github.io/blog/2014/07/22/Web-Security-with-Grails/"/>
+    <updated>2014-07-22T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/07/22/Web-Security-with-Grails</id>
+    <content type="html"><![CDATA[<p>As web applications become more complex by the day, security becomes an important aspect to consider during development.
+One way to address the variety of security loopholes in the system is to follow a check-list based approach. Look at the
+top 10 vulnerabilities web apps face today and address each one of these individually. OWASP (The Open Web Application
+Security Project) provides a list of <strong>top 10 security flaws that web applications face <a href="https://www.owasp.org/index.php/Top_10_2013-Top_10">here</a></strong>.
+Addressing these flaws will help applications reduce a significant percentage of attacks. The list of attacks and the facilities Grails provide to
+counter these flaws is discussed by Burt Beckwith in his book <a href="http://www.amazon.com/gp/product/1449323936/ref=s9_psimh_gw_p14_d0_i1?pf_rd_m=ATVPDKIKX0DER&amp;pf_rd_s=center-2&amp;pf_rd_r=0V1S7N5XDS49SC24MCXB&amp;pf_rd_t=101&amp;pf_rd_p=1688200342&amp;pf_rd_i=507846">Programming Grails</a>
+A summary of the discussion is provided below.</p>
+
+<p><strong>Injection (SQL / Javascript) :</strong>  where a text input field is used to enter code (SQL or Javascript) that can compromise the application.
+  Grails is mostly immune to this because most of ths queries are converted to Hibernate criteria queries (which uses PreparedStatement with parameter
+  holders, and this escapes any injected code). In case you use HQL, care should be taken to avoid injection. Another possible injection vulnerability is if you use
+  groovy command execution in the backend. So one needs to take care of escaping these scenarios.</p>
+
+<p><strong>Broken Auth / Sessions :</strong> where incorrect implementation of authentication and session management is taken advantage to compromise passwords, keys, or session tokens
+  The simple solution to this is to use a library that implements authentication and session management. Grails uses the Spring-Security library and
+  provides a plugin to integrate it easily into your web application. Just make sure the following parameters are set correctly
+    - grails.views.enable.jsessionid = false
+    - grails.plugins.springsecurity.useSessionFixationPrevention = true
+    - make sure to use encodeURL instead of encodeRedirectURL if you are creating redirect URLs</p>
+
+<p><strong>XSS (Cross site scripting) :</strong> where untrusted data (using injection) is sent to browser (javascript code executed in place of data)
+Setting
+    grails.views.default.codec = &ldquo;html&rdquo;
+allows automatic escaping of input data. But this is not fool-proof. Also make sure you don&rsquo;t use the following Groovy server pages technique for writing to
+output which directly writes to output stream.
+    &lt;%=person.name%></p>
+
+<p><strong>Insecure Direct object references :</strong> where urls point to internal objects and changing a url with a different parameter could provide access to unauthorized data.
+In Grails this can be avoided by using Spring security authentication - get the appropriate user id in the server and use that to retrieve further
+references instead of having them in the client. Another option would be to use ACLs, but this is more cumbersome</p>
+
+<p><strong>Mis-configured security :</strong> such as not using correct algorithms, not enabling SSL, etc. Grails does not have any explicit way to automate away misconfiguration</p>
+
+<p><strong>Failure to restrict URL access :</strong> The Spring Security plugin offers three approaches to guarding URLs: annotations,
+database “requestmaps,” and a simple mapping of URLs and their required roles. In addition, there is a “strict” mode
+option where URLs that do not have explicit access rules defined are blocked. Enabling this is simple, just a single line
+in Config.groovy:
+    grails.plugins.springsecurity.rejectIfNoRule = true</p>
+
+<p><strong>Insufficient Transport Layer Protection :</strong> One of the easiest ways to do this is to use SSL for your web traffic.
+Although there is a small cost to using SSL due to the processing work encrypting the
+pages, you should consider using SSL for the entire site. Then, everything is transmitted
+securely and the data is significantly less likely to be accessed by attackers.
+The certificate should use strong encryption, with a key size of at least 128 bits.</p>
+
+<p><strong>CSRF :</strong> A cross-site request forgery (CSRF) attack is similar to an XSS attack. An attacker will
+often use XSS vulnerabilities to create pages that make requests on the behalf of other
+users and send personal information, cookies, or session IDs to the attacker’s server, or
+perform some action on behalf of the user. The first line of defense against CSRF attacks is to ensure that XSS attacks
+are not possible.</p>
+
+<p>The best way to defeat CSRF attacks is to generate a token for each clickable URL (appended
+to the href) and form (using an <input type='hidden'> tag), and verify the token at the server. If a request is made
+(either a GET or a POST), and there is no token or it’s not valid, the action is blocked. As long as the value is unique
+and generated for each request, even if an attacker accesses someone else’s valid token, it won’t be usable,
+because it is only valid for that user. The easiest way to implement this is to use grails HDIV plugin</p>
+
+<p><strong>Using insecure cryptographic storage :</strong> Storing data requires good libraries for Hashing and Encryption.
+Passwords are typically hashed. There is rarely a need to decrypt a password stored in a database, because during
+authentication, you merely need to hash the user’s supplied password and compare it with the previously hashed value.
+MD5, and SHA-1 are popular algorithms but recent advances in computing have made it easy to break these.
+One should prefer SHA-256 or SHA-512 for hashing. The best choice is Bcrypt where you can specify number of hash iterations.
+Adding a &ldquo;salt&rdquo; to hashing makes it more robust.</p>
+
+<p>The Jasypt library is an excellent tool to avoid having to deal with the implementation
+details of encrypting data, and there’s even a Grails plugin for it: the <a href="http://grails.org/plugin/jasypt-encryption">jasyptencryption plugin</a>.</p>
+
+<p><strong>Unvalidated redirects :</strong> Redirecting or forwarding users to other URLs exposes them to being taken
+advantage of by attackers by taking advantage of some XSS exploit. One way to deal with this
+is to use server side redirects which cannot be exploited. Another way to address this specific to
+grails is to use the &lsquo;flash&rsquo; scope.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Which Database?]]></title>
+    <link href="http://squareprism.github.io/blog/2014/07/01/Which-Database/"/>
+    <updated>2014-07-01T00:00:00+05:30</updated>
+    <id>http://squareprism.github.io/blog/2014/07/01/Which-Database</id>
+    <content type="html"><![CDATA[<p>We have come a long way from the days where database development meant designing relational models  for a database like Oracle or
+SQL Server. The last few years have seen a proliferation of databases that are meant to perform very specific tasks.Application
+server middle-ware have also become more flexible and now support multiple data sources instead of having to use just a single DB.</p>
+
+<p>Since there are so many options out there it is important to understand the strength and weakness of each and use databases
+appropriately, based on functional or non-functional requirements. Here&rsquo;s a handy map of some of the most popular databases and
+where they would fit into your application architecture.</p>
+
+<p><img src="/images/Which_Database.png" title="Which Database" alt="Which database?" /></p>
+
+<p>In addition to picking a database based on functional requirements, one may require to access them based on the compromises
+each one makes in terms of supporting <em>consistency</em>, <em>availability</em> and <em>partitioning tolerance</em>. A popular thumb-rule for such
+an assessment is known as the <strong>CAP Theorem</strong>. CAP theorem states that most databases would be able to satisfy two of the
+three conditions above, but not all - so every database makes a compromise in one of these parameters to satisfy the other
+two. If one of these parameters are important for an architecture, it may be pertinent to know if a database is making a compromise
+before making a choice.</p>
+
+<p>Want to know more? Check out <a href="http://www.amazon.com/Seven-Databases-Weeks-Modern-Movement/dp/1934356921/ref=sr_1_1?ie=UTF8&amp;qid=1404529485&amp;sr=8-1&amp;keywords=seven+databases+in+seven+weeks" title="Seven Databases in Seven Weeks">Seven Databases in Seven Weeks</a></p>
+]]></content>
+  </entry>
+  
+</feed>
